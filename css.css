@@ -1,3 +1,9 @@
+p a:hover{
+	color:red;
+}
+p a{
+	color:violet;
+}
 * {
 	margin:auto;
 	text-align:right;
