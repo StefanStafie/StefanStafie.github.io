@@ -1,22 +1,18 @@
-p a:hover{
-	color:red;
-}
-p a{
-	color:violet;
-}
 * {
 	margin:auto;
-	text-align:right;
 	font-size:22px;
 	font-family:Courier New;
-	color:red;
+	color:white;
 	list-style: none;
-	font-weight: bold;
-	text-shadow: 2px 2px #660033;
+	text-shadow: 2px 2px #000000;
 	text-decoration: none;
+	text-align:center;
 }
 #interests{
 	margin-top:60px;
+}
+#page {
+	width:1000px;
 }
 h3{
 	font-size:30px;
@@ -24,11 +20,8 @@ h3{
 }
 body{
 	padding-top:50px;
-	height:1000px;
-	width:1000px;
 	margin:auto;
-	background-color:red;
-	background-image: url(http://wallpapercave.com/wp/44f8WTE.jpg);
+	background-image: url(http://www.planwallpaper.com/static/images/518079-background-hd.jpg);
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -39,27 +32,27 @@ body{
 #contact a{
 	text-decoration: underline;
 }
-#projects{
-	border:1px solid grey;
-	margin-top:20px;
-	height:30px;
-	width:108px;
-	font-size:20px;
-	border-radius:10px;
-	text-decoration-style: none;
-}
-#projects:hover{
-	color:white;
+select{
+	font-align:center;
+  	background: grey;
+  	width: 150px;
+   	padding: 5px;
+   	font-size: 25px;
+   	line-height: 1;
+   	border: 0;
+   	border-radius: 0;
+   	height: 34px;
+    -webkit-appearance: none;
 }
 #profile{
 	border:4px dashed black;
 	margin-top:-50px;
-	float:left;
 	width:300px;
 	height:300px;
 	background-image: url(photo2.jpg);
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
 	border-radius:200px;
+	margin:auto;
 	
 }
