@@ -1,26 +1,92 @@
-<!DOCTYPE html>
+<!doctype html>
+<html>
 <head>
-	<title>Profile</title>
-	<link rel="stylesheet" type="text/css" href="css.css">
+	<link rel="stylesheet" href="style1.css">
+	<script src="javascript.js"></script>
+	<title>My page</title>
 </head>
-<body>
-	<div id="big">
-		<img src="photo2.jpg"/>
-		<p>Hi, there. I'm Stephen and this is my coder page.</p>
-	</div>
-	<div id="links">	
-		<div id="first">
-			<a href="https://stefanstafie.github.io/Projects/"><div id="projects">
-				Projects
-			</div>
-			<a href=""><div id="details">
-				Details
-			</div></a>
-		</div>
-		<div id="second">
-			<div>Check out some of my projects. My favourite is Whac-A-Mole</div>
-			<div>Find more about me, RoCode and 3Pitici Corporation</div>
-		</div>
-	</div>
+<body onload="mech(1)">
+	<div id="border"></div>
+	<div id="principal">
 
+		<div id="stanga">
+			<div class="poza"><img id="profil" style="border-radius:50px;" src="assets/img/backgr.jpg"></div>
+			<div id="choice1" class="link" onclick="mech(1)"><p>About</p></div>
+			<div id="choice2" class="link" onclick="mech(2)"><p>Work</p></div>
+			<div id="choice3" class="link" onclick="mech(3)"><p>Labs</p></div>
+			<div id="choice4" class="link" onclick="mech(4)"><p>Contact</p></div>
+			<div id="footer and links"></div>
+
+		</div>
+		<div id="dreapta">
+			<div id="content1">
+				<br><br>
+				<h2>About</h2>
+				<table style="width:100%">
+				  <tr>
+				    <td width="50%">
+				    	<h1>Leonida Pascalopol</h1>
+				    	<h3>Student at UAIC</h3>
+				    	<h5>Currently going through "parțiale". Do not disturb. There is a high risk of "restanță".</h5>
+				    	<table width="100%">
+				    		<tr>
+				    			<td><a href="assets/anex/hire/hire.html"><button>HIRE ME</button></a></td>
+				    			<td><a href ="assets/anex/more/more.html"><button>READ MORE</RP></button></a></td>
+				    		</tr>
+				    	</table width="100%">
+				    	<table>
+				    		<tr>
+				    			Previously collaborated with:
+				    		</tr>
+				    		<tr>
+				    			<td><a href="http://cnrv.ro/"><img class="icon" src="assets/img/icon1.png"></a></td>
+				    			<td><a href="https://atlantykron.org/"><img class="icon" src="assets/img/icon2.png"></a></td>
+				    			<td><a href="https://atlantykron.org/"><img class="icon" src="assets/img/icon3.png"></td>				   
+				    		</tr>
+				    	</table>
+				    </td>
+				    <td><img id="backgr" style="border-radius:50px;" src="assets/img/ound.jpg"></td> 
+				    
+				  </tr>
+				</table>
+			</div>
+
+
+
+			<div id="content2" style="overflow-y: scroll; height:600px;">
+				<br><br>
+				<h2>Work</h2>
+				<table style="width:100%">
+				  <tr>
+				    <td class="project"><a href="https://stefanstafie.github.io/Parallax-Story/"><img class="projectPhoto" src = "assets/img/p1.png"></a><br>Geometrie. Teorie si probleme</td>
+				    <td class="project"><a href="https://stefanstafie.github.io/Color-Management/"><img class="projectPhoto" src = "assets/img/p2.png"></a><br>Joc pentru ochi. Recunoaște culoarea</td>
+				    <td class="project"><a href="https://stefanstafie.github.io/CookieBakerMoneyMaker/"><img class="projectPhoto" src = "assets/img/p3.png"></a><br>Cookie Baker. Money Maker</td>
+				  </tr>
+				   <tr>
+				    <td class="project"><a href="https://stefanstafie.github.io/Whac-A-Mole2/"><img class="projectPhoto" src = "assets/img/p4.png"></a><br>Whac-a-Mole</td>
+				    <td class="project"><a href="Project 1.html"><img class="projectPhoto" src = "assets/img/p5.png"></a><br>Project 5</td>
+				    <td class="project"><a href="Project 1.html"><img class="projectPhoto" src = "assets/img/p6.png"></a><br>Project 6</td>
+				  </tr>
+				  <tr>
+				    <td class="project"><a href="Project 1.html"><img class="projectPhoto" src = "assets/img/p6.png"></a><br>Project 7</td>
+				    <td class="project"><a href="Project 1.html"><img class="projectPhoto" src = "assets/img/p6.png"></a><br>Project 8</td>
+				    <td class="project"><a href="Project 1.html"><img class="projectPhoto" src = "assets/img/p6.png"></a><br>Project 9</td>
+				  </tr>
+				   <tr>
+				    <td class="project"><a href="Project 1.html"><img class="projectPhoto" src = "assets/img/p6.png"></a><br>Project 10</td>
+				    <td class="project"><a href="Project 1.html"><img class="projectPhoto" src = "assets/img/p6.png"></a><br>Project 11</td>
+				    <td class="project"><a href="Project 1.html"><img class="projectPhoto" src = "assets/img/p6.png"></a><br>Project 12</td>
+				  </tr>
+				</table>
+			</div>
+			<div id="content3">
+				Page in progress. Return later
+			</div>
+			<div id="content4">
+				Insert content
+			</div>
+		</div>
+	</div>
+	
 </body>
+</html>

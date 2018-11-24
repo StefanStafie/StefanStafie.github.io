@@ -1,0 +1,130 @@
+@font-face {
+    font-family: 'Sofia';
+    src: url('assets/fonts/sofia-regular-webfont.woff') format('woff'),
+         url('assets/fonts/sofia-regular-webfont.ttf') format('truetype');
+}
+body{
+	background: linear;
+	font-family:Sofia;
+	font-size:18px;
+	color:white;
+	background: repeating-linear-gradient(transparent, darkblue	 5px),
+            repeating-linear-gradient(0.15turn, orange, darkgreen 5px);
+}
+#principal {
+	padding:20px;
+	margin:auto;
+	width:800px;
+	height:600px;
+}
+#profil{
+	height:60%;
+	width:60%;
+}
+.poza{
+	text-align: center;
+	border-radius: 25px;
+	padding-top:60px;
+	margin-left:60px;
+	width:100px;
+	height:100px;
+}
+p{
+	text-align: left;
+	color:white;
+    vertical-align: middle;
+}
+#stanga{
+
+	background-color:#280028;
+	width:220px;
+	height:600px;
+	border:1px solid black;
+	float: left;
+
+}
+
+#dreapta{
+	padding-left:10px;
+	height: 600px;
+    width: 580px;
+    border: 1px solid black;
+    float: right;
+    margin-left: -20px;
+    background-color:#230023;
+}
+.link:hover{
+	background-color:#350035;
+}
+.link {	
+	border-radius: 15px;
+	padding-left:30px;
+	border: 1px solid #280028;
+	border-left: 10px solid #280028;
+	width:200px;
+	height:63px;
+	margin-top:10px;
+	margin-bottom:10px;
+	vertical-align: middle;
+}
+
+h1, h3, h5{
+	font-family: new times roman;
+}
+h3{
+	color:#900000;
+}
+#content1{
+	height:588px;
+	width:578px;
+	border: 1px solid #230023;
+}
+#backgr{
+	width:250px;
+	height:300px;
+	border-radius:0px;
+}
+button{
+	height:40px;
+	width:120px;
+	border:none;
+	background-color:#900000;
+	border-radius:3px;
+	;
+}
+.icon{
+	margin-left:5px;
+	margin-top:15px;
+	height:70px;
+	width:70px;
+}
+
+#content2{
+
+	height:600px;
+}
+.project{
+	text-align: center;
+	width:140px;
+	height:200px;
+
+
+}
+.projectPhoto{
+	width:150px;
+	height:100px;
+}
+::-webkit-scrollbar { 
+    display: none; 
+}
+#content3{
+	vertical-align:;
+	height:598px;
+	width:578px;
+	border: 1px solid #230023;
+}
+#content4{
+	height:598px;
+	width:578px;
+	border: 1px solid #230023;
+}
