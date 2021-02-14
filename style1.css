@@ -121,6 +121,7 @@ a {
 }
 
 .selector {
+    user-select: none;
     background: repeating-linear-gradient(#280028, black 5px);
     animation: ease-in-out;
     animation: pulse 1s infinite;
@@ -226,8 +227,14 @@ footer {
     background-image: url("assets/img/plsql.png");
 }
 
-#project9 {
-    background-image: url("assets/img/ducl.jpg");
+#content3 {
+    max-width: 80vw;
+    flex-wrap: wrap;
+}
+
+#content3 * {
+    max-width: 50vw;
+    max-height: 50vh;
 }
 
 #content4 {
