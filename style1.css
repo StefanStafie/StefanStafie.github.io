@@ -95,7 +95,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: repeating-linear-gradient(transparent, black 5px), repeating-linear-gradient(0.15turn, black, #1b007d 5px);
+    background: repeating-linear-gradient(rgba(0, 65, 0, 0.5), rgba(65, 0, 0, 0.5) 7px), repeating-linear-gradient(90deg, black, #1a0000 2px);
     font-size: 30px;
     font-family: Sofia;
     color: white;
@@ -112,8 +112,8 @@ a {
     text-align: left;
     color: white;
     flex-direction: row;
-    border-top: 1px solid rgb(43, 43, 43);
-    border-bottom: 1px solid rgb(43, 43, 43);
+    border-top: 1px solid rgb(94, 94, 94);
+    border-bottom: 1px solid rgb(68, 68, 68);
 }
 
 .selector:hover {
@@ -179,14 +179,18 @@ footer {
     flex-wrap: wrap;
 }
 
-.projects * {
-    height: 400px;
-    width: 300px;
-    background: rgba(0, 0, 0, 0.3);
+.projects>* {
     background-size: 300px 400px;
+    margin: 20px;
 }
 
-.projects * :hover {
+.projects>*>* {
+    height: 400px;
+    width: 300px;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.projects>* :hover {
     background: rgba(0, 0, 0, 0.7);
 }
 
