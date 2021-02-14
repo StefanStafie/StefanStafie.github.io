@@ -6,7 +6,7 @@
         text-shadow: 5px 5px 8px green;
     }
     40% {
-        text-shadow: 5px 5px 8px blue;
+        text-shadow: 5px 5px 8px white;
     }
     60% {
         text-shadow: 5px 5px 8px yellow;
@@ -16,9 +16,70 @@
     }
 }
 
-* {
-    animation: ease-in-out;
-    animation: pulse 1s infinite;
+@keyframes fill_up {
+    0% {
+        background: repeating-linear-gradient(#280028, transparent 5px), linear-gradient(0deg, rgba(40, 0, 40, 1) 0%, black 10%, rgba(9, 9, 121, 0) 100%);
+    }
+    5% {
+        background: repeating-linear-gradient(#280028, transparent 5px), linear-gradient(0deg, rgba(40, 0, 40, 1) 5%, black 15%, rgba(9, 9, 121, 0) 100%);
+    }
+    10% {
+        background: repeating-linear-gradient(#280028, transparent 5px), linear-gradient(0deg, rgba(40, 0, 40, 1) 10%, black 20%, rgba(9, 9, 121, 0) 100%);
+    }
+    15% {
+        background: repeating-linear-gradient(#280028, transparent 5px), linear-gradient(0deg, rgba(40, 0, 40, 1) 15%, black 25%, rgba(9, 9, 121, 0) 100%);
+    }
+    20% {
+        background: repeating-linear-gradient(#280028, transparent 5px), linear-gradient(0deg, rgba(40, 0, 40, 1) 20%, black 30%, rgba(9, 9, 121, 0) 100%);
+    }
+    25% {
+        background: repeating-linear-gradient(#280028, transparent 5px), linear-gradient(0deg, rgba(40, 0, 40, 1) 25%, black 35%, rgba(9, 9, 121, 0) 100%);
+    }
+    30% {
+        background: repeating-linear-gradient(#280028, transparent 5px), linear-gradient(0deg, rgba(40, 0, 40, 1) 30%, black 40%, rgba(9, 9, 121, 0) 100%);
+    }
+    35% {
+        background: repeating-linear-gradient(#280028, transparent 5px), linear-gradient(0deg, rgba(40, 0, 40, 1) 35%, black 45%, rgba(9, 9, 121, 0) 100%);
+    }
+    40% {
+        background: repeating-linear-gradient(#280028, transparent 5px), linear-gradient(0deg, rgba(40, 0, 40, 1) 40%, black 50%, rgba(9, 9, 121, 0) 100%);
+    }
+    45% {
+        background: repeating-linear-gradient(#280028, transparent 5px), linear-gradient(0deg, rgba(40, 0, 40, 1) 45%, black 55%, rgba(9, 9, 121, 0) 100%);
+    }
+    50% {
+        background: repeating-linear-gradient(#280028, transparent 5px), linear-gradient(0deg, rgba(40, 0, 40, 1) 50%, black 60%, rgba(9, 9, 121, 0) 100%);
+    }
+    55% {
+        background: repeating-linear-gradient(#280028, transparent 5px), linear-gradient(0deg, rgba(40, 0, 40, 1) 55%, black 65%, rgba(9, 9, 121, 0) 100%);
+    }
+    60% {
+        background: repeating-linear-gradient(#280028, transparent 5px), linear-gradient(0deg, rgba(40, 0, 40, 1) 60%, black 70%, rgba(9, 9, 121, 0) 100%);
+    }
+    65% {
+        background: repeating-linear-gradient(#280028, transparent 5px), linear-gradient(0deg, rgba(40, 0, 40, 1) 65%, black 75%, rgba(9, 9, 121, 0) 100%);
+    }
+    70% {
+        background: repeating-linear-gradient(#280028, transparent 5px), linear-gradient(0deg, rgba(40, 0, 40, 1) 70%, black 80%, rgba(9, 9, 121, 0) 100%);
+    }
+    75% {
+        background: repeating-linear-gradient(#280028, transparent 5px), linear-gradient(0deg, rgba(40, 0, 40, 1) 75%, black 85%, rgba(9, 9, 121, 0) 100%);
+    }
+    80% {
+        background: repeating-linear-gradient(#280028, transparent 5px), linear-gradient(0deg, rgba(40, 0, 40, 1) 80%, black 90%, rgba(9, 9, 121, 0) 100%);
+    }
+    85% {
+        background: repeating-linear-gradient(#280028, transparent 5px), linear-gradient(0deg, rgba(40, 0, 40, 1) 85%, black 95%, rgba(9, 9, 121, 0) 100%);
+    }
+    90% {
+        background: repeating-linear-gradient(#280028, transparent 5px), linear-gradient(0deg, rgba(40, 0, 40, 1) 90%, black 100%);
+    }
+    95% {
+        background: repeating-linear-gradient(#280028, transparent 5px), linear-gradient(0deg, rgba(40, 0, 40, 1) 95%, black 100%);
+    }
+    100% {
+        background: repeating-linear-gradient(#280028, transparent 5px), linear-gradient(0deg, rgba(40, 0, 40, 1) 95%, black 100%);
+    }
 }
 
 @font-face {
@@ -26,140 +87,145 @@
     src: url('assets/fonts/sofia-regular-webfont.woff') format('woff'), url('assets/fonts/sofia-regular-webfont.ttf') format('truetype');
 }
 
-body {
-    background: linear;
-    font-family: Sofia;
-    font-size: 18px;
-    color: white;
-    background: repeating-linear-gradient(transparent, darkblue 5px), repeating-linear-gradient(0.15turn, orange, darkgreen 5px);
-}
-
-#principal {
-    padding: 20px;
-    margin: auto;
-    width: 800px;
-    height: 600px;
-}
-
-#profil {
-    height: 60%;
-    width: 60%;
-}
-
-.poza {
-    text-align: center;
-    border-radius: 25px;
-    padding-top: 60px;
-    margin-left: 60px;
-    width: 100px;
-    height: 100px;
-}
-
-p {
-    text-align: left;
-    color: white;
-    vertical-align: middle;
-}
-
-#stanga {
-    background-color: #280028;
-    width: 220px;
-    height: 600px;
-    border: 1px solid black;
-    float: left;
-}
-
-#dreapta {
-    padding-left: 10px;
-    height: 600px;
-    width: 580px;
-    border: 1px solid black;
-    float: right;
-    margin-left: -20px;
-    background-color: #230023;
-}
-
-.link:hover {
-    background-color: #350035;
-}
-
-.link {
-    border-radius: 15px;
-    padding-left: 30px;
-    border: 1px solid #280028;
-    border-left: 10px solid #280028;
-    width: 200px;
-    height: 63px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    vertical-align: middle;
-}
-
-h1,
-h3,
-h5 {
-    font-family: 'Times New Roman', Times, serif;
-}
-
-h3 {
-    color: #900000;
-}
-
-#content1 {
-    height: 588px;
-    width: 578px;
-    border: 1px solid #230023;
-}
-
-#backgr {
-    width: 250px;
-    height: 300px;
-    border-radius: 0px;
-}
-
-button {
-    height: 40px;
-    width: 120px;
-    border: none;
-    background-color: #900000;
-    border-radius: 3px;
-    ;
-}
-
-.icon {
-    margin-left: 5px;
-    margin-top: 15px;
-    height: 70px;
-    width: 70px;
-}
-
-#content2 {
-    height: 600px;
-}
-
-.project {
-    text-align: center;
-    width: 140px;
-    height: 200px;
-}
-
-.projectPhoto {
-    width: 150px;
-    height: 100px;
-}
-
-::-webkit-scrollbar {
+*::-webkit-scrollbar {
     display: none;
 }
 
-#content3 {
-    height: 598px;
-    width: 578px;
-    border: 1px solid #230023;
+* {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: repeating-linear-gradient(transparent, black 5px), repeating-linear-gradient(0.15turn, black, #1b007d 5px);
+    font-size: 30px;
+    font-family: Sofia;
+    color: white;
+    text-shadow: 2px 2px black;
+}
+
+a {
+    background: transparent;
+}
+
+.stuff {
+    min-width: 90vw;
+    justify-content: space-evenly;
+    text-align: left;
+    color: white;
+    flex-direction: row;
+    border-top: 1px solid rgb(43, 43, 43);
+    border-bottom: 1px solid rgb(43, 43, 43);
+}
+
+.selector:hover {
+    animation: fill_up 0.5s forwards;
+}
+
+.selector {
+    background: repeating-linear-gradient(#280028, black 5px);
+    animation: ease-in-out;
+    animation: pulse 1s infinite;
+    display: flex;
+    flex-grow: 0.2;
+    border-radius: 2px;
+    border: 1px solid #280028;
+    border-bottom: 5px solid #280028;
+    flex-direction: column;
+    align-items: center;
+    padding: 3px;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.page-main {
+    margin-top: 50px;
+    flex-grow: 1;
+}
+
+.page-header {
+    position: fixed;
+    top: -5px;
+    left: -2px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    background-color: grey;
+}
+
+ul {
+    flex-direction: column;
+}
+
+footer {
+    font-size: medium;
+}
+
+#content1 {
+    min-width: 90vw;
+    flex-direction: column;
+}
+
+#content2 {
+    min-width: 90vw;
+    flex-direction: column;
+}
+
+.projects {
+    max-width: 90vw;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.projects * {
+    height: 400px;
+    width: 300px;
+    background: rgba(0, 0, 0, 0.3);
+    background-size: 300px 400px;
+}
+
+.projects * :hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+#project1 {
+    background-image: url("photo2.jpg");
+}
+
+#project2 {
+    background-image: url("assets/img/corona.jpg");
+}
+
+#project3 {
+    background-image: url("assets/img/blender.png");
+}
+
+#project4 {
+    background-image: url("assets/img/c.png");
+}
+
+#project5 {
+    background-image: url("assets/img/java.png");
+}
+
+#project6 {
+    background-image: url("assets/img/numista.jpg");
+}
+
+#project7 {
+    background-image: url("assets/img/python.png");
+}
+
+#project8 {
+    background-image: url("assets/img/plsql.png");
+}
+
+#project9 {
+    background-image: url("assets/img/ducl.jpg");
 }
 
 #content4 {
-    height: 598px;
-    width: 578px;
-    border: 1px solid #230023;
+    flex-direction: column;
 }

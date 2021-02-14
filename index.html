@@ -1,121 +1,131 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 
 <head>
+    <title style="display:none">My page</title>
+
     <link rel="stylesheet" href="style1.css">
+    <script type="text/javascript" style="display:none">
+        function stupid_code() {
+            mech(1);
+        }
+        window.onload = stupid_code;
+    </script>
     <script src="javascript.js"></script>
-    <title>My page</title>
 
 </head>
 
 <body>
-    <div id="border"></div>
-    <div id="principal">
-
-        <div id="stanga">
-            <div class="poza"><img id="profil" style="border-radius:50px;" src="assets/img/backgr.jpg"></div>
-            <div id="choice1" class="link" onclick="mech(1)">
-                <p>About</p>
+    <div class="wrapper">
+        <header class="page-header">
+            <div id="choice1" class="selector" onclick="mech(1)">
+                About
             </div>
-            <div id="choice2" class="link" onclick="mech(2)">
-                <p>Work</p>
+            <div id="choice2" class="selector" onclick="mech(2)">
+                Projects
             </div>
-            <div id="choice3" class="link" onclick="mech(3)">
-                <p>Labs</p>
+            <div id="choice3" class="selector" onclick="mech(3)">
+                Labs
             </div>
-            <div id="choice4" class="link" onclick="mech(4)">
-                <p>Contact</p>
+            <div id="choice4" class="selector" onclick="mech(4)">
+                Contact
             </div>
-            <div id="footer and links"></div>
-
-        </div>
-        <div id="dreapta">
+        </header>
+        <main class="page-main">
             <div id="content1">
-                <br><br>
-                <h2>About</h2>
-                <table style="width:100%">
-                    <tr>
-                        <td width="50%">
-                            <h1>Leonida Pascalopol</h1>
-                            <h3>Student at UAIC</h3>
-                            <h5>Currently going through "parțiale". Do not disturb. There is a high risk of "restanță".</h5>
-                            <table width="100%">
-                                <tr>
-                                    <td><a href="assets/anex/hire/hire.html"><button>HIRE ME</button></a></td>
-                                    <td><a href="assets/anex/more/more.html"><button>READ MORE</RP></button></a></td>
-                                </tr>
-                            </table width="100%">
-                            <table>
-                                <tr>
-                                    Previously collaborated with:
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="http://cnrv.ro/"><img class="icon" src="assets/img/icon1.png"></a>
-                                    </td>
-                                    <td>
-                                        <a href="https://atlantykron.org/"><img class="icon" src="assets/img/icon2.png"></a>
-                                    </td>
-                                    <td>
-                                        <a href="https://atlantykron.org/"><img class="icon" src="assets/img/icon3.png"></td>
-                                </tr>
-                            </table>
-                        </td>
-                        <td><img id="backgr" style="border-radius:50px;" src="assets/img/ound.jpg"></td>
+                <h2>HI</h2>
+                I am Stafie Stefan
+                <div class="stuff">
+                    <p>I like a lot of stuff</p>
+                    <ul>
+                        <li>games</li>
+                        <li>cycling</li>
+                        <li>photography</li>
+                        <li>DIY projects</li>
+                        <li>creating</li>
+                        <li>PC related stuff</li>
+                    </ul>
+                </div>
 
-                    </tr>
-                </table>
+                <div class="stuff">
+                    <ul>
+                        <li>Computer Science Faculty</li>
+                        <li>C.N.R.V.</li>
+                        <li>Pentastagiu</li>
+                        <li>github</li>
+                        <li>Cambridge</li>
+                    </ul>
+                    have helped me develop my skills
+                </div>
+
+                <div class="stuff"> And i became moderately good at
+                    <ul>
+                        <li>Software development</li>
+                        <li>C++, Python, Java</li>
+                        <li>PHP, HTML, CSS, JS</li>
+                        <li>github</li>
+                        <li>English</li>
+                    </ul>
+                </div>
+
+
+
             </div>
 
 
+            <div id="content2">
+                <h2>I have a few things i can show you</h2>
+                <div class="projects">
+                    <div id="project1">
+                        <a href="https://stefanstafie.github.io/">This. <br>This site.<br> I made this</a>
+                    </div>
+                    <div id="project2">
+                        <a href="https://stefanstafie.github.io/Corona-Game/">A boardgame featuring the Corona virus</a>
+                    </div>
+                    <div id="project3">
+                        <a href="https://github.com/StefanStafie/Honorable-mentions/tree/master/Blender">Blender projects</a>
+                    </div>
+                    <div id="project4">
+                        <a href="https://github.com/StefanStafie/Honorable-mentions/tree/master/C%20Kahoot%2CQuiz%20Game%20(server-client)">A quiz game similar to Kahoot in C</a>
+                    </div>
+                    <div id="project5">
+                        <a href="https://github.com/StefanStafie/Honorable-mentions/tree/master/Java">Java projects</a>
+                    </div>
+                    <div id="project6">
+                        <a href="https://github.com/StefanStafie/Honorable-mentions/tree/master/PHP%20%26%20web%20%20%20Coin%20handling%20site">PHP site</a>
+                    </div>
+                    <div id="project7">
+                        <a href="https://github.com/StefanStafie/Honorable-mentions/tree/master/Python">Python projcts</a>
+                    </div>
+                    <div id="project8">
+                        <a href="https://github.com/StefanStafie/Honorable-mentions/tree/master/plsql%20%2B%20Spring%20REST%20Chestionar%20online">PL/SQL and databases</a>
+                    </div>
+                    <div id="project9">
+                        <a href="https://stefanstafie.github.io/DuckDVI/">Duck Project</a>
+                    </div>
+                </div>
 
-            <div id="content2" style="overflow-y: scroll; height:600px;">
-                <br><br>
-                <h2>Work</h2>
-                <table style="width:100%">
-                    <tr>
-                        <td class="project">
-                            <a href="https://stefanstafie.github.io/Parallax-Story/"><img class="projectPhoto" src="assets/img/p1.png"></a><br>Geometrie. Teorie si probleme</td>
-                        <td class="project">
-                            <a href="https://stefanstafie.github.io/Color-Management/"><img class="projectPhoto" src="assets/img/p2.png"></a><br>Joc pentru ochi. Recunoaște culoarea</td>
-                        <td class="project">
-                            <a href="https://stefanstafie.github.io/CookieBakerMoneyMaker/"><img class="projectPhoto" src="assets/img/p3.png"></a><br>Cookie Baker. Money Maker</td>
-                    </tr>
-                    <tr>
-                        <td class="project">
-                            <a href="https://stefanstafie.github.io/Whac-A-Mole2/"><img class="projectPhoto" src="assets/img/p4.png"></a><br>Whac-a-Mole</td>
-                        <td class="project">
-                            <a href="Project 1.html"><img class="projectPhoto" src="assets/img/p5.png"></a><br>Project 5</td>
-                        <td class="project">
-                            <a href="Project 1.html"><img class="projectPhoto" src="assets/img/p6.png"></a><br>Project 6</td>
-                    </tr>
-                    <tr>
-                        <td class="project">
-                            <a href="Project 1.html"><img class="projectPhoto" src="assets/img/p6.png"></a><br>Project 7</td>
-                        <td class="project">
-                            <a href="Project 1.html"><img class="projectPhoto" src="assets/img/p6.png"></a><br>Project 8</td>
-                        <td class="project">
-                            <a href="Project 1.html"><img class="projectPhoto" src="assets/img/p6.png"></a><br>Project 9</td>
-                    </tr>
-                    <tr>
-                        <td class="project">
-                            <a href="Project 1.html"><img class="projectPhoto" src="assets/img/p6.png"></a><br>Project 10</td>
-                        <td class="project">
-                            <a href="Project 1.html"><img class="projectPhoto" src="assets/img/p6.png"></a><br>Project 11</td>
-                        <td class="project">
-                            <a href="Project 1.html"><img class="projectPhoto" src="assets/img/p6.png"></a><br>Project 12</td>
-                    </tr>
-                </table>
+
+
             </div>
             <div id="content3">
                 Page in progress. Return later
             </div>
             <div id="content4">
-                Insert content
+                I just met you, and this is crazy but here's my contact information. <br>.
+                <a href="https://www.linkedin.com/in/stefan-stafie-baa66a120/">LinkedIn</a>
+                <a href="https://www.facebook.com/stefan.stafie/">Facebook</a>
+                <a href="https://github.com/StefanStafie">Github</a>
+                <a href="https://www.instagram.com/stafiestefan/">Instagram</a>
+                <a>stefanstafie99@gmail.com</a>
+                <a>stefan.stafie@info.uaic.ro</a><br> so, call me maybe?
             </div>
-        </div>
-    </div>
 
+        </main>
+        <footer class="page-footer">
+            I don't need a footer
+        </footer>
+    </div>
 </body>
 
 </html>
