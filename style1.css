@@ -247,9 +247,6 @@ footer {
 }
 
 @media only screen and (max-width: 980px) {
-    #project1 {
-        background-image: url("assets/img/birb.jpg");
-    }
     #extra {
         display: flex;
     }
@@ -268,5 +265,12 @@ footer {
     }
     * {
         font-size: 50px;
+    }
+    .stuff {
+        flex-wrap: wrap;
+        width: 100vw;
+    }
+    .stuff>* {
+        width: 90vw;
     }
 }
