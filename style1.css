@@ -147,6 +147,7 @@ a {
 }
 
 .page-header {
+    order: 1;
     position: fixed;
     top: -5px;
     left: -2px;
@@ -239,4 +240,33 @@ footer {
 
 #content4 {
     flex-direction: column;
+}
+
+#extra {
+    display: none;
+}
+
+@media only screen and (max-width: 980px) {
+    #project1 {
+        background-image: url("assets/img/birb.jpg");
+    }
+    #extra {
+        display: flex;
+    }
+    .page-header {
+        max-width: 100vw;
+        flex-wrap: wrap;
+        overflow: hidden;
+        top: -380px;
+        transition: all 0.7s ease-out;
+    }
+    .page-header:hover {
+        top: 0px;
+    }
+    .selector {
+        min-width: 100vw;
+    }
+    * {
+        font-size: 50px;
+    }
 }
