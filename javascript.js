@@ -1,5 +1,5 @@
 var a;
-
+/*
 function start_as() {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
@@ -96,4 +96,4 @@ function mech(a) {
         var yourUl = document.getElementById("choice4");
         yourUl.style.background = 'repeating-linear-gradient(#280028, transparent 5px), linear-gradient(0deg, rgba(40, 0, 40, 1) 95%, black 100%)';
     }
-}
+}*/
