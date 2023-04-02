@@ -78,5 +78,6 @@ footer {
 }
 
 .profilePic {
+    border-radius: 5%;
     margin:5%;
 }
