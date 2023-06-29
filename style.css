@@ -1,0 +1,18 @@
+.LandingView {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.lefty {
+    width:40%;
+}
+
+.righty {
+    width:40%;
+}
+
+.profilePic {
+    border-radius: 5%;
+    margin:5%;
+}
