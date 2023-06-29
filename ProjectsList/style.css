@@ -54,3 +54,17 @@
     height:100%;
     align-items:flex-start;
 }
+
+/* Adjust styles for even smaller screens */
+@media (max-width: 768px) {
+    .projectColumn {
+        width:90%;
+    }
+}
+
+
+@media (max-width: 500px) {
+    .projectColumn {
+        width:90%;
+    }
+}

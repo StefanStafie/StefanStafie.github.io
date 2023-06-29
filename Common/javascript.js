@@ -41,3 +41,12 @@ function createShape() {
 for (var i = 0; i < 10; i++) {
     createShape();
 }
+
+
+const navbarToggle = document.getElementById('navbar-toggle');
+const navbarMenu = document.getElementById('navbar-menu');
+
+navbarToggle.addEventListener('click', () => {
+  navbarMenu.classList.toggle('navbar-menu-open');
+  navbarToggle.classList.toggle('navbar-toggle-open');
+});
