@@ -5,9 +5,14 @@ function getRandom(min, max) {
 
 // Generate a random color
 function getRandomColor() {
-    var letters = '12356448';
+    var letters = '123312';
     var color = '#';
-    for (var i = 0; i < 6; i++) {
+    for (var i = 0; i < 4; i++) {
+        color += letters[Math.floor(Math.random() * 6)];
+    }
+
+    letters = 'ABCDEFAB';
+    for (var i = 0; i < 2; i++) {
         color += letters[Math.floor(Math.random() * 8)];
     }
     return color;
