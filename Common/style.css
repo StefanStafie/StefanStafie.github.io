@@ -100,6 +100,8 @@ footer {
 
 .navbar-toggle {
     position: fixed;
+    padding:10px;
+    padding-left: 20px;
     top: 0;
     left: 0;
     width: 100%;
@@ -107,30 +109,31 @@ footer {
     z-index: 9;
     display: none;
     cursor: pointer;
-    padding: 10px;
 }
 
 .toggle-icon {
     display: block;
-    width: 20px;
-    height: 2px;
+    width: 40px;
+    height: 15px;
+    padding:0px;
     background-color: #333;
-    margin-bottom: 4px;
+    margin-bottom: 2px;
 }
 
 /* Media Query for Mobile */
 @media (max-width: 768px) {
     .wrapper{
-        padding-top:80px;
+        padding-top:30px;
+        width:95%;
     }
 
     .navbar-menu {
         flex-direction: column;
         position: fixed;
         left:0;
-        top: 80px;
+        top: 60px;
         display:none;
-        font-size: 28px;
+        font-size: 20px;
         width:100%;
         background-color: #0D1117;
     }

@@ -58,7 +58,7 @@
 /* Adjust styles for even smaller screens */
 @media (max-width: 768px) {
     .projectColumn {
-        width:90%;
+        width:45%;
     }
 }
 
