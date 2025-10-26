@@ -1,54 +1,633 @@
 <!DOCTYPE html>
-
+<html lang="en">
 <head>
-    <title style="display:none">Developer Homepage</title>
-    <link rel="stylesheet" href="./Common/style.css">
-    <link rel="stylesheet" href="style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Stefan Stafie — Software Developer</title>
+  <meta name="description" content="Stefan Stafie — Software Developer / System Engineer" />
+  <meta name="color-scheme" content="light dark">
+  <meta property="og:title" content="Stefan Stafie — Software Developer" />
+  <meta property="og:description" content="Stefan Stafie — Software Developer / System Engineer" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://example.com/" />
+  <!-- TODO: Add your favicon(s)
+  <link rel="icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  -->
+
+  <style>
+
+
+    /* --------- CSS VARIABLES & THEME --------- */
+    :root {
+      --bg: #0b0c10;
+      --panel: #111317;
+      --text: #e8eaf0;
+      --muted: #a7b0c0;
+      --primary: #6aa0ff;
+      --primary-600: #4d86ef;
+      --accent: #6ef3a2;
+      --border: #1d2230;
+      --card: #12151c;
+      --shadow: 0 8px 24px rgba(0,0,0,0.35);
+    }
+
+    /* Auto adjust when OS is light mode (will be overridden by manual toggle) */
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f7f9fc;
+        --panel: #ffffff;
+        --text: #0f172a;
+        --muted: #5b6472;
+        --primary: #2b6fff;
+        --primary-600: #1f57d6;
+        --accent: #0cb878;
+        --border: #e6e9f0;
+        --card: #ffffff;
+        --shadow: 0 8px 24px rgba(2, 17, 37, 0.08);
+      }
+    }
+
+    /* Manual theme override via data-theme attribute */
+    html[data-theme="light"] {
+      --bg: #f7f9fc;
+      --panel: #ffffff;
+      --text: #0f172a;
+      --muted: #5b6472;
+      --primary: #2b6fff;
+      --primary-600: #1f57d6;
+      --accent: #0cb878;
+      --border: #e6e9f0;
+      --card: #ffffff;
+      --shadow: 0 8px 24px rgba(2, 17, 37, 0.08);
+    }
+    html[data-theme="dark"] {
+      --bg: #0b0c10;
+      --panel: #111317;
+      --text: #e8eaf0;
+      --muted: #a7b0c0;
+      --primary: #6aa0ff;
+      --primary-600: #4d86ef;
+      --accent: #6ef3a2;
+      --border: #1d2230;
+      --card: #12151c;
+      --shadow: 0 8px 24px rgba(0,0,0,0.35);
+    }
+
+    /* --------- GLOBAL RESET / BASE --------- */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--text);
+      background: radial-gradient(1200px 600px at 90% -10%, rgba(106,160,255,0.15), transparent 45%),
+                  radial-gradient(900px 450px at -10% 110%, rgba(110,243,162,0.12), transparent 40%),
+                  var(--bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      scroll-behavior: smooth;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: var(--primary); text-decoration: none; }
+    a:hover { color: var(--primary-600); }
+    code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+
+    /* Layout */
+    .container { width: min(1100px, 92%); margin: 0 auto; }
+
+    /* --------- NAV --------- */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      background: color-mix(in oklab, var(--panel) 88%, transparent);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: .9rem 0;
+    }
+    .brand { display: flex; align-items: center; gap: .7rem; font-weight: 700; letter-spacing: .3px; }
+    .brand .logo {
+      width: 32px; height: 32px; border-radius: 8px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      display: grid; place-items: center; color: #fff; font-size: .95rem; box-shadow: var(--shadow);
+    }
+    nav ul { list-style: none; display: flex; gap: 1rem; margin: 0; padding: 0; }
+    nav a { padding: .5rem .7rem; border-radius: .5rem; color: var(--text); }
+    nav a:hover { background: color-mix(in oklab, var(--primary) 12%, transparent); color: var(--text); }
+
+    .nav-actions { display: flex; align-items: center; gap: .5rem; }
+    .btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .6rem .9rem; border-radius: .7rem; border: 1px solid var(--border);
+      background: var(--panel); color: var(--text); cursor: pointer;
+      box-shadow: none; transition: transform .05s ease-in-out, background .2s;
+    }
+    .btn:hover { background: color-mix(in oklab, var(--panel) 92%, var(--primary) 8%); }
+    .btn.primary {
+      background: linear-gradient(180deg, color-mix(in oklab, var(--primary) 82%, white 18%), var(--primary-600));
+      border-color: color-mix(in oklab, var(--primary-600) 70%, black 30%);
+      color: #fff; font-weight: 600;
+    }
+    .btn.primary:hover { transform: translateY(-1px); }
+
+    /* Mobile menu */
+    .menu-toggle { display: none; }
+    @media (max-width: 820px) {
+      nav ul { display: none; position: absolute; top: 60px; left: 0; right: 0; background: var(--panel); border-bottom: 1px solid var(--border); padding: .5rem; }
+      nav ul.open { display: grid; gap: .3rem; }
+      .menu-toggle { display: inline-flex; }
+    }
+
+    /* --------- HERO --------- */
+    .hero { padding: 6rem 0 3rem; }
+    .hero-grid {
+      display: grid; grid-template-columns: 1.35fr .9fr; gap: 2rem; align-items: center;
+    }
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; }
+    }
+    .eyebrow {
+      font-size: .85rem; color: var(--muted); text-transform: uppercase; letter-spacing: .12em;
+    }
+    .title { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.15; margin: .3rem 0 .7rem; font-weight: 800; }
+    .subtitle { font-size: 1.05rem; color: var(--muted); }
+    .hero-cta { display: flex; gap: .6rem; flex-wrap: wrap; margin-top: 1.2rem; }
+    .chip {
+      display: inline-flex; align-items: center; gap: .45rem;
+      background: color-mix(in oklab, var(--accent) 14%, transparent);
+      color: color-mix(in oklab, var(--accent) 80%, var(--text) 20%);
+      border: 1px solid color-mix(in oklab, var(--accent) 45%, var(--border) 55%);
+      padding: .35rem .6rem; border-radius: 999px; font-size: .85rem;
+    }
+    .portrait {
+      aspect-ratio: 1; border-radius: 1rem; background: linear-gradient(135deg, color-mix(in oklab, var(--card) 70%, black 30%), var(--card));
+      border: 1px solid var(--border); box-shadow: var(--shadow); padding: .6rem;
+      display: grid; place-items: center; overflow: hidden;
+    }
+    .portrait .ph {
+      width: 100%; height: 100%; border-radius: .8rem;
+      background: linear-gradient(135deg, #89a7ff22, #6ef3a222), radial-gradient(200px 200px at 70% 20%, #6aa0ff22, transparent 50%), var(--panel);
+      display: grid; place-items: center; color: var(--muted); font-weight: 600;
+    }
+
+    /* --------- SECTIONS --------- */
+    section { padding: 3rem 0; scroll-margin-top: 80px; }
+    .section-title { font-size: 1.6rem; margin-bottom: 1rem; }
+    .muted { color: var(--muted); }
+
+    /* About */
+    .about {
+      background: linear-gradient( to bottom, color-mix(in oklab, var(--panel) 72%, transparent), transparent);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .about p { margin: .5rem 0; }
+
+    /* Skills */
+    .skills-grid { display: flex; flex-wrap: wrap; gap: .6rem; }
+    .skill {
+      padding: .45rem .65rem; border: 1px solid var(--border); border-radius: .6rem;
+      background: var(--card); font-size: .9rem;
+    }
+
+    /* Experience */
+    .timeline {
+      display: grid; gap: 1rem; border-left: 2px solid var(--border); padding-left: 1rem;
+    }
+    .job {
+      background: var(--card); border: 1px solid var(--border); border-radius: .8rem; padding: 1rem; box-shadow: var(--shadow);
+    }
+    .job header { display: flex; align-items: baseline; justify-content: space-between; gap: .6rem; }
+    .job h3 { margin: 0; font-size: 1.1rem; }
+    .job .meta { color: var(--muted); font-size: .9rem; }
+    .job ul { margin: .5rem 0 0 1.1rem; }
+    .job li { margin: .3rem 0; }
+
+    /* Projects */
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    @media (max-width: 1000px) { .cards { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 650px) { .cards { grid-template-columns: 1fr; } }
+    .card {
+      background: var(--card); border: 1px solid var(--border); border-radius: .9rem; overflow: hidden; box-shadow: var(--shadow);
+      display: grid; grid-template-rows: 160px 1fr;
+    }
+    .thumb {
+      background: linear-gradient(135deg, color-mix(in oklab, var(--primary) 18%, transparent), color-mix(in oklab, var(--accent) 18%, transparent));
+      display: grid; place-items: center; color: #fff; font-weight: 700; letter-spacing: .08em;
+    }
+    .card-body { padding: .9rem; display: grid; gap: .5rem; }
+    .tags { display: flex; flex-wrap: wrap; gap: .4rem; }
+    .tag {
+      font-size: .78rem; padding: .25rem .5rem; border-radius: .5rem; border: 1px solid var(--border); color: var(--muted);
+      background: color-mix(in oklab, var(--panel) 70%, transparent);
+    }
+    .card-actions { display: flex; gap: .5rem; margin-top: .2rem; }
+    .link { display: inline-flex; align-items: center; gap: .35rem; font-weight: 600; }
+
+    /* Contact */
+    .contact {
+      border-top: 1px solid var(--border);
+    }
+    .contact-grid {
+      display: grid; grid-template-columns: 1.2fr 1fr; gap: 1rem; align-items: start;
+    }
+    @media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; } }
+    .contact-panel {
+      background: var(--card); border: 1px solid var(--border); border-radius: .8rem; padding: 1rem; box-shadow: var(--shadow);
+    }
+    .socials { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: .6rem; }
+    .socials a { border: 1px solid var(--border); padding: .5rem .7rem; border-radius: .6rem; background: var(--panel); }
+
+    /* Footer */
+    footer {
+      padding: 2rem 0; color: var(--muted); text-align: center;
+      border-top: 1px solid var(--border);
+    }
+
+/* ---- CONTACT – additional styles ---- */
+.contact-list { display: grid; gap: .9rem; margin: 1rem 0; }
+.contact-item { display: grid; grid-template-columns: 36px 1fr; gap: .7rem; align-items: start; }
+.contact-item .icon {
+  width: 36px; height: 36px; display: grid; place-items: center;
+  background: color-mix(in oklab, var(--primary) 10%, var(--panel));
+  border: 1px solid var(--border); border-radius: 8px;
+}
+.contact-item .label { font-weight: 600; margin-bottom: .15rem; }
+.actions { display: flex; gap: .4rem; flex-wrap: wrap; margin-top: .35rem; }
+.btn.sm { padding: .35rem .55rem; font-size: .85rem; border-radius: .5rem; }
+.small { font-size: .9rem; }
+.contact-quick { display: flex; gap: .5rem; flex-wrap: wrap; margin: .8rem 0 0; }
+
+  </style>
 </head>
-
 <body>
-    <div class="wrapper" id="wrapper">
+  <!-- Accessible skip link -->
+  <a href="#main" style="position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden;"
+     onfocus="this.style.cssText='position:static;width:auto;height:auto;padding:.5rem;background:var(--panel);border:1px solid var(--border);border-radius:.5rem;z-index:1000;'">
+     Skip to content
+  </a>
 
-        <nav class="navbar" id="navbar">
-            <div class="navbar-toggle" id="navbar-toggle">
-                <span class="toggle-icon"></span>
-                <span class="toggle-icon"></span>
-                <span class="toggle-icon"></span>
-            </div>
-            <div id="navbar-menu" class="navbar-menu">
-                <a href="./index.html" class="open-page">Home</a>
-                <a href="./About/about.html">CV</a>
-                <a href="./ProjectsList/projects.html">Projects</a>
-                <a href="./Skills/skills.html">Skills</a>
-                <a href="./Contact/contact.html">Contact</a>
-            </div>
-        </nav>
-        <div class="LandingView">
-            <div class="lefty">
-                <h2>Hi, I am Stafie Stefan</h2>
-                <h4>A passionate and dedicated .NET developer with a strong academic background in Computer Science.
-                </h4>
-                <h4>Having successfully completed my studies at the Computer Science Faculty, I acquired a solid
-                    foundation in software development principles, algorithms, and data structures. Since then, I have
-                    been honing my skills in the .NET framework, specializing in building robust and scalable
-                    applications using C#.</h4>
-                <h4>I have gained hands-on experience in developing end-to-end applications, leveraging the power of
-                    technologies such as ASP.NET, MVC, and Entity Framework.</h4>
-                <h4>My portfolio showcases a diverse range of projects, spanning across multiple programming languages
-                    and design patterns. I take pride in delivering solutions by focusing on usability, maintainability,
-                    and scalability.</h4>
-                <h4>Let's bring ideas to life!</h4>
-            </div>
-            <div class="righty"><img class="profilePic" src="assets/img/Eu2.png" /></div>
-        </div>
-        <footer>
-            <h6>Stafie Stefan - Developer</h6>
-        </footer>
+  <!-- NAV -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">S</div>
+        <span>Stefan Stafie</span>
+      </div>
 
+      <nav aria-label="Primary">
+        <button class="btn menu-toggle" aria-expanded="false" aria-controls="menu">☰ Menu</button>
+        <ul id="menu">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="themeToggle" class="btn" aria-label="Toggle theme">🌓 Theme</button>
+        <a class="btn primary" href="cv.pdf" target="_blank" rel="noopener">Download CV</a> <!-- TODO: place your cv.pdf -->
+      </div>
     </div>
-    <script src="javascript.js"></script>
-    <script src="./Common/javascript.js"></script>
-</body>
+  </header>
 
+  <main id="main">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Software Developer / System Engineer</div>
+          <h1 class="title">I build reliable, scalable software with a product mindset.</h1>
+          <p class="subtitle">
+            I’m <strong>Stefan Stafie</strong>, a developer with a decade of professional studies and <strong>4+ years</strong> of experience at <strong>Continental</strong>.
+          </p>
+          <div class="hero-cta">
+            <a class="btn primary" href="#projects">View Projects</a>
+            <a class="btn" href="#contact">Contact Me</a>
+          </div>
+        </div>
+        <div class="portrait" aria-hidden="true">
+          <div class="ph"><img src="./eu.png"/></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="about">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <p>
+          I’m a software developer with specialized studies in computer science and a strong focus on
+          building maintainable, performant software. Over the last 4 years at Continental, I’ve contributed to
+          cross-functional teams delivering high-quality features in safety-critical and high-uptime environments.
+        </p>
+        <p>
+          I enjoy designing clear interfaces, automating repetitive work, and improving engineering processes.
+          Outside of work, I play with code to create useful appllications for myself.
+        </p>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+  <div class="container">
+    <h2 class="section-title">Skills</h2>
+    <p class="muted">Core technologies, tools, and platforms I use regularly.</p>
+
+    <div class="skills-group">
+      <h3 class="skills-category">🧠 Backend Development</h3>
+      <div class="skills-grid" aria-label="Backend Development">
+        <span class="skill"><strong>C#</strong></span>
+        <span class="skill"><strong>ASP.NET</strong></span>
+        <span class="skill"><strong>REST API</strong></span>
+        <span class="skill">SQL</span>
+        <span class="skill">Design Patterns</span>
+      </div>
+    </div>
+
+    <div class="skills-group">
+      <h3 class="skills-category">⚙️ Scripting & Programming</h3>
+      <div class="skills-grid" aria-label="Scripting & Programming">
+        <span class="skill"><strong>.NET Framework applications</strong></span>
+        <span class="skill">C++</span>
+        <span class="skill">Ps1</span>
+        <span class="skill">Batch</span>
+      </div>
+    </div>
+
+    <div class="skills-group">
+      <h3 class="skills-category">🗂 Versioning & Collaboration</h3>
+      <div class="skills-grid" aria-label="Versioning & Collaboration">
+        <span class="skill"><strong>Git/SVN</strong></span>
+        <span class="skill">CI/CD (GitHub Actions)</span>
+        <span class="skill">Code Review &amp; Clean Code</span>
+      </div>
+    </div>
+
+    <div class="skills-group">
+      <h3 class="skills-category">🧪 Testing & Quality Assurance</h3>
+      <div class="skills-grid" aria-label="Testing & Quality Assurance">
+        <span class="skill">Unit Testing</span>
+        <span class="skill">Integration Testing</span>
+        <span class="skill">Performance analysis</span>
+        <span class="skill">Vulnerability scanning</span>
+      </div>
+    </div>
+
+    <div class="skills-group">
+      <h3 class="skills-category">📋 Methodologies & Workflow</h3>
+      <div class="skills-grid" aria-label="Methodologies & Workflow">
+        <span class="skill">Agile</span>
+        <span class="skill">Confluence</span>
+        <span class="skill">KPI Tracking</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <div class="container">
+        <h2 class="section-title">Experience</h2>
+        <div class="timeline">
+          <article class="job" aria-label="Experience: Continental">
+            <header>
+              <h3>Software Developer — Continental</h3>
+              <span class="meta">2021 — Present · Iasi, Romania</span>
+            </header>
+            <ul>
+              <li>Built windows application for running fully automated qualification tests, handling test engine, database and logging, dynamic libraries.</li>
+              <li>Built windows application for managing multiple shopfloor computers, allowing remote access and management tools.</li>
+              <li>Built automated test pipelines (CI/CD) and maintained underlying servers and services.</li>
+              <li>Collaborated with cross-functional international teams.</li>
+              <li>Maintain legacy code and extend with new features.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="container">
+        <h2 class="section-title">Projects</h2>
+        <p class="muted">A few ideas that i implemented and found interesting</p>
+        <div class="cards">
+
+          <article class="card">
+            <div class="thumb">insert icon</div>
+            <div class="card-body">
+              <h3>Remote PC control <strong>C#</strong></h3>
+              <p>Allows connecting to other PC's and controlling it. Works by running a service on the target pc and connecting via IP.</p>
+              <div class="tags">
+                <span class="tag">Windows Service</span><span class="tag">TCP</span><span class="tag">Image processing</span><span class="tag">C#</span>
+              </div>
+            </div>
+          </article>
+
+	  <article class="card">
+            <div class="thumb">insert icon</div>
+            <div class="card-body">
+              <h3>Machine learning and AI related</h3>
+              <p>Projects in python which focus on finding patterns in images or data and using it to clasify new images or predict features of new data.</p>
+              <div class="tags">
+                <span class="tag">AI</span><span class="tag">Machine Learning</span><span class="tag">Python</span><span class="tag">JupyterLab</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="thumb">insert icon</div>
+            <div class="card-body">
+              <h3>Server based site for managing coins</h3>
+              <p>A site for numismatic purposes, build with php which allows creating, replacing, updating and deleting coins. Supports basic search, filtering and date export</p>
+              <div class="tags">
+                <span class="tag">Web</span><span class="tag">PHP</span><span class="tag">SQL</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="thumb">insert icon</div>
+            <div class="card-body">
+              <h3>Console projects <strong>C++</strong></h3>
+              <p>Hotel reservation system, offline messenger, kahoot type quiz application. All made with C++, taking full advantage of multi threaded interactions between server and client.</p>
+              <div class="tags">
+                <span class="tag">Server to client</span><span class="tag">Multi thread</span><span class="tag">C++</span><span class="tag">Web GUI</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="thumb">insert icon</div>
+            <div class="card-body">
+              <h3>Microcontroller programming <strong>C</strong></h3>
+              <p>Varied applications of microcontrollers in automotive scenarios. Working with event based sensors and digital outputs and displays.</p>
+              <div class="tags">
+                <span class="tag">Microcontrollers</span><span class="tag">C</span><span class="tag">Simulators</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="thumb">insert icon</div>
+            <div class="card-body">
+              <h3>Tic Tac Toe server and Gomoku <strong>Java</strong></h3>
+              <p>Classic games implemented in Java environment. Shows GUI implementation in java and REST API utility in TicTacToe </p>
+              <div class="tags">
+                <span class="tag">GUI</span><span class="tag">Strategy implementation</span><span class="tag">Java</span>
+              </div>
+            </div>
+          </article>
+
+
+
+        </div>
+      </div>
+    </section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <div class="container contact-grid">
+    <div>
+      <h2 class="section-title">Get in Touch</h2>
+      <p class="muted">Reach out by email. I’m open to opportunities, collaborations, and interesting problems.</p>
+
+      <address class="contact-list" aria-label="Contact methods">
+        <div class="contact-item">
+  <div class="icon" aria-hidden="true">📧</div>
+  <div>
+    <div class="label">Email</div>
+
+    <a id="emailLink" href="#" data-user="stefan" data-domain="example.com">stefanstafie99@gmail.com</a>
+    <div class="actions">
+      <button class="btn sm" onclick="copyEmail()">Copy</button>
+      <button class="btn sm" onclick="composeEmail()">Compose</button>
+    </div>
+  </div>
+</div>
+
+        <!-- LinkedIn -->
+        <div class="contact-item">
+          <div class="icon" aria-hidden="true">🔗</div>
+          <div>
+            <div class="label">LinkedIn</div>
+            <a href="https://www.linkedin.com/in/stefan-stafie-baa66a120" target="_blank" rel="noopener">https://www.linkedin.com/in/stefan-stafie-baa66a120</a>
+	  </div>        
+
+	<!-- Github -->
+        <div class="contact-item">
+          <div class="icon" aria-hidden="true">🐙</div>
+	  <div>
+            <div class="label">GitHub</div>
+            <a href="https://github.com/StefanStafie" target="_blank" rel="noopener">https://github.com/StefanStafie</aass="contact-quick">
+          </div>
+
+	</address>
+    </div>
+   
+
+   </div>
+</section>
+
+
+
+
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Stefan Stafie. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- JSON-LD for basic SEO (schema.org/Person) -->
+  <script>
+    // ------ Mobile menu toggle ------
+    const menuBtn = document.querySelector('.menu-toggle');
+    const menu = document.getElementById('menu');
+    menuBtn.addEventListener('click', () => {
+      const open = menu.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', String(open));
+    });
+
+    // Close menu when clicking a link (mobile)
+    menu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        if (menu.classList.contains('open')) {
+          menu.classList.remove('open');
+          menuBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+
+    // ------ Theme toggle with localStorage ------
+    const root = document.documentElement;
+    const themeToggle = document.getElementById('themeToggle');
+    const THEME_KEY = 'theme-preference';
+
+    function setTheme(theme) {
+      if (theme === 'light' || theme === 'dark') {
+        root.setAttribute('data-theme', theme);
+      } else {
+        root.removeAttribute('data-theme'); // fall back to system preference
+      }
+    }
+    function getStoredTheme() { try { return localStorage.getItem(THEME_KEY); } catch { return null; } }
+    function storeTheme(theme) { try { localStorage.setItem(THEME_KEY, theme); } catch {} }
+
+    // Initialize
+    const stored = getStoredTheme();
+    if (stored) setTheme(stored);
+
+    themeToggle.addEventListener('click', () => {
+      const current = root.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : current === 'light' ? null : 'dark';
+      setTheme(next);
+      storeTheme(next ?? '');
+      themeToggle.textContent = '🌓 Theme';
+    });
+
+    // ------ Footer year ------
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+
+
+
+
+<script>
+  function getEmail() {
+    const emailLink = document.getElementById("emailLink");
+    return emailLink.textContent.trim();
+  }
+
+  function copyEmail() {
+    const email = getEmail();
+    navigator.clipboard.writeText(email).then(() => {
+    }).catch(err => {
+      console.error("Failed to copy email: ", err);
+    });
+  }
+
+  function composeEmail() {
+    const email = getEmail();
+    window.location.href = `mailto:${email}`;
+  }
+</script>
+
+
+</body>
 </html>
+
+
+
+
+
+
